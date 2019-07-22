@@ -1,10 +1,13 @@
-package mac.flanigan.base;
+package mac.flanigan.testcases;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import mac.flanigan.base.TestBase;
+
 import org.openqa.selenium.By;
 
-public class LoginTest extends TestBase{
+public class BankManagerLoginTest extends TestBase{
 	
 	@Test
 	public void loginAsBankManager() throws InterruptedException {

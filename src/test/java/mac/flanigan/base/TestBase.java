@@ -1,6 +1,5 @@
 package mac.flanigan.base;
 
-import org.testng.annotations.AfterMethod;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,8 +12,11 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+
+import mac.flanigan.utilities.ExcelReader;
 
 public class TestBase {
 
@@ -34,6 +36,10 @@ public class TestBase {
 	public static Properties config = new Properties();
 	public static Properties OR = new Properties();
 	public static FileInputStream fis;
+	public static Logger log = Logger.getLogger("devpinoyLogger");
+	public static ExcelReader excel = 
+			new ExcelReader(System.getProperty(USER_DIR) + "/src/test/resources/excel/testData.xlsx");
+	public static WebDriverWait wait;
 
 	@BeforeSuite
 	public void setup() {
@@ -75,6 +81,7 @@ public class TestBase {
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")),
 					TimeUnit.SECONDS);
+			wait = new WebDriverWait(driver, 5);
 
 		}
 	}
@@ -89,7 +96,6 @@ public class TestBase {
 		}
 	}
 
-	@AfterMethod
 	@AfterSuite
 	public void tearDown() {
 		if (driver != null) {
