@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Data Driven Basics">
-  <test thread-count="5" name="Bank Manager Login Test">
-    <classes>
-      <class name="mac.flanigan.testcases.BankManagerLoginTest"/>
-    </classes>
-  </test>
-  <test thread-count="5" name="Add customer test">
-    <classes>
-      <class name="mac.flanigan.testcases.AddCustomerTest"/>
-    </classes>
-  </test>
-   <!-- Test -->
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+	</listeners>
+
+	<test thread-count="5" name="Bank Manager Login Test">
+		<classes>
+			<class name="mac.flanigan.testcases.BankManagerLoginTest" />
+		</classes>
+	</test>
+	<test thread-count="5" name="Add customer test">
+		<classes>
+			<class name="mac.flanigan.testcases.AddCustomerTest" />
+		</classes>
+	</test>
+	<!-- Test -->
 </suite> <!-- Suite -->
