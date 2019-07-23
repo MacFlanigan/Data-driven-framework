@@ -14,9 +14,6 @@ public class AddCustomerTest extends TestBase {
 	@Test(dataProvider = "getData")
 	public void addCustomer(String firstName, String lastName, String postCode, String alerttext) throws InterruptedException {
 		
-		log.debug("Adding new customer");
-		
-		
 		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
 		driver.findElement(By.cssSelector(OR.getProperty("firstname"))).sendKeys(firstName);
 		driver.findElement(By.cssSelector(OR.getProperty("lastname"))).sendKeys(lastName);
@@ -26,6 +23,8 @@ public class AddCustomerTest extends TestBase {
 		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 		Assert.assertTrue(alert.getText().contains(alerttext));
 		alert.accept();
+		
+		Assert.fail("Customer not added");
 	}
 	
 	@DataProvider
