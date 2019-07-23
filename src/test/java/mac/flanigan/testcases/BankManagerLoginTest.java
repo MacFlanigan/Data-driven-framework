@@ -16,6 +16,6 @@ public class BankManagerLoginTest extends TestBase{
 		Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn"))));
 		log.debug("Login successfully executed");
 		
-		Assert.fail("Login not successfull");
+		Assert.fail("Login NOT successfull");
 	}
 }

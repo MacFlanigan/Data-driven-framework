@@ -24,7 +24,8 @@ public class AddCustomerTest extends TestBase {
 		Assert.assertTrue(alert.getText().contains(alerttext));
 		alert.accept();
 		
-		Assert.fail("Customer not added");
+		Assert.fail("Customer NOT added");
+		
 	}
 	
 	@DataProvider
